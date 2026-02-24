@@ -1,4 +1,7 @@
 # Bouncers
 An exercise to learn about functions and classes.
 
-Please find instructions in [instructions.md](instructions.md).
+Sprites that bounces around everytime you press X and a blue background shows in the background. 
+
+![Bouncers in action](bouncer_gif.gif)
+
