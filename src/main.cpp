@@ -33,14 +33,16 @@ public:
     bn::fixed y_speed = BASE_SPEED;
 
     // Constructor to set random speeds
-    Bouncer(bn::random& random)
+    Bouncer(bn::random &random)
     {
         x_speed = random.get_fixed(-3, 3);
         y_speed = random.get_fixed(-3, 3);
 
         // changed random speeds
-        if (x_speed == 0) x_speed = 2;
-        if (y_speed == 0) y_speed = 2;
+        if (x_speed == 0)
+            x_speed = 2;
+        if (y_speed == 0)
+            y_speed = 2;
     }
 
     void update()
@@ -81,16 +83,16 @@ public:
     }
 };
 
-bn::fixed average_x(const bn::vector<Bouncer, MAX_BOUNCERS>& bouncers)
+bn::fixed average_x(const bn::vector<Bouncer, MAX_BOUNCERS> &bouncers)
 {
     bn::fixed x_sum = 0;
 
-    for(const Bouncer& bouncer : bouncers)
+    for (const Bouncer &bouncer : bouncers)
     {
         x_sum += bouncer.sprite.x();
     }
 
-    if(bouncers.size() > 0)
+    if (bouncers.size() > 0)
     {
         return x_sum / bouncers.size();
     }
@@ -98,7 +100,7 @@ bn::fixed average_x(const bn::vector<Bouncer, MAX_BOUNCERS>& bouncers)
     return 0;
 }
 
-void add_bouncer(bn::vector<Bouncer, MAX_BOUNCERS> &bouncers, bn::random& random)
+void add_bouncer(bn::vector<Bouncer, MAX_BOUNCERS> &bouncers, bn::random &random)
 {
     // Only add if we're below the maximum
     if (bouncers.size() < bouncers.max_size())
@@ -132,7 +134,7 @@ int main()
 
         if (bn::keypad::b_pressed())
         {
-             BN_LOG("Average x: ", average_x(bouncers));
+            BN_LOG("Average x: ", average_x(bouncers));
         }
 
         // for each bouncer
